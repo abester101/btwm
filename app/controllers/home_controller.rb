@@ -1,6 +1,6 @@
 require 'forecast_io'
 class HomeController < ApplicationController
-  def index
+def index
   	@main_name = "Beat the Weather Man"
 
     ForecastIO.configure do |configuration|
@@ -10,5 +10,7 @@ class HomeController < ApplicationController
     @weather = {
       termperature: forecast.currently.apparentTemperature,
     }
+  end
+  def competitions
   end
 end
