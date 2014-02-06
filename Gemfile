@@ -34,6 +34,8 @@ end
 
 
 gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootswatch-rails'
+gem 'forecast_io'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
