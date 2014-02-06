@@ -1,6 +1,8 @@
 require 'forecast_io'
 class HomeController < ApplicationController
   def index
+  	@main_name = "Beat the Weather Man"
+
     ForecastIO.configure do |configuration|
       configuration.api_key = '5ad9fa126241fffb15fe3fd4d88ff96e'
     end
