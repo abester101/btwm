@@ -1,7 +1,10 @@
 BeatTheWeatherMan::Application.routes.draw do
+  get "home/login"
   get "home/competitions"
   get "home/signup"
   get "home/index"
+  get "home/register" => "home#register"
+  get "home/login" => "home#login"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

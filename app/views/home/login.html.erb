@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<!-- Single button -->
+	<%= render "navbar"%>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<center>
+			<div class="jumbotron">
+				<h1>
+					Logging In
+				</h1>
+				<p>
+					Welcome back to Beat the Weather Man!
+				</p>
+				<p><a class="btn btn-primary btn-lg" role="button" id="submit_button">I'm Finished</a></p>
+			</div>
+			<div class="container">
+				<h2>Enter your information here below</h2>
+				<div class="alerts">
+					<% if params[:just_reg]%>
+						<div class='alert alert-success' id='just-reg'>Now Enter Your Username and Email to Log in!</div>
+					<% end%>
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">Email</span>
+				  <input type="text" class="form-control" id="email" placeholder="Your Email or Username">
+				  
+  				  <span class="input-group-addon">Password</span>
+  				  <input type="password" class="form-control" id="password" placeholder="Your Password Here">
+				</div>
+				
+			</div>
+		</center>
+	</body>
+</html>

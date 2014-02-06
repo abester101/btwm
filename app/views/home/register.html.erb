@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<!-- Single button -->
+<%= render "navbar"%>
+<center>
+  <div class="jumbotron">
+  <h1>Beat the Weather Man</h1>
+  <p><i>Becuase they are never right!</i></p>
+  <p>
+  <%= link_to "Start Playing Now", {:controller => "home", :action => "signup"},:class=> 'btn btn-primary btn-lg', 'data-role'=> 'button'%>
+  </p>
+</div>
+</center>
+
+<center>
+<div class="row">
+          <div class="col-lg-4">
+            <h1>This is column 1</h1>
+          </div>
+          <div class="col-lg-4">
+            <h1>This is column 1</h1>
+          </div>
+          <div class="col-lg-4">
+            <h1>This is column 1</h1>
+          </div>
+</div> 
+</center>
+</html>

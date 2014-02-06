@@ -1,21 +1,104 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-<!-- Single button -->
-<%= render "navbar"%>
+	<!-- Single button -->
+	<%= render "navbar"%>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<center>
+			<div class="jumbotron">
+				<h1>
+					Signing Up
+				</h1>
+				<p>
+					We only need 2 values from you to sign up. It is just that simple
+				</p>
+				<p><a class="btn btn-primary btn-lg" role="button" id="submit_button">I'm Finished</a></p>
+			</div>
+			<div class="container">
+				<h2>Enter your information here below</h2>
+				<div class="alerts">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">Email</span>
+				  <input type="text" class="form-control" id="email" placeholder="Your Email and Username">
+				  
+  				  <span class="input-group-addon">Password</span>
+  				  <input type="password" class="form-control" id="password" placeholder="A Complex Password Which Nobody Could Simply Guess">
+				</div>
+				
+			</div>
+		</center>
+	</body>
+	
+	<script>
+		
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		jQuery("#email").change(function(){
+			var text = jQuery(this).val();
+			if (text.length == 0){
+				jQuery(".alerts").append("<div class='alert alert-info' id='warn-email'>Sorry but we do not accept empty email</div>").hide().show('slow');
+			} else{
+				jQuery("#warn-email").hide("slow");
+			}
+			if (!validateEmail(text) && text.length != 0){
+				//alert("validates");
+				jQuery(".alerts").append("<div class='alert alert-warning' id='not-email'>This does not seem to be an email</div>").hide().show('slow');
+			} else{
+				//alert("QAQ");
+				jQuery("#not-email").hide("slow");
+			}
+		});
+		
+		jQuery("#password").change(function(){
+			var text = jQuery(this).val();
+			if (text.length == 0){
+				jQuery(".alerts").append("<div class='alert alert-info' id='warn-danger'>Em.. Are you sure you don't want any password?</div>").hide().show('slow');
+			} else{
+				jQuery("#warn-pass").hide("slow");
+				if (text.length > 0 && text.length < 6){
+					
+					//alert("validates");
+					jQuery(".alerts").append("<div class='alert alert-warning' id='no-length'>Sorry The Password Length is Too Short!</div>").hide().show('slow');
+				} else{
+					if (!validatePassword(text)){
+						jQuery(".alerts").append("<div class='alert alert-warning' id='illegal_char'>Sorry we don't accept spaces._.!</div>").hide().show('slow');
+					} else{
+						jQuery(".alerts").empty();
+						jQuery("#illegal_char").hide("slow");
+					}
+					jQuery("#no-length").hide("slow");
+				}
+				
+			}
+			
+			
+			
+		});
+		
+		function validatePassword(password){
+			var rg = /\S+/;
+			return rg.test(password);
+		}
+		
+		function validateEmail(email){
+			var rg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+			return rg.test(email);
+		}
+		
+		
+		jQuery("#submit_button").click(function(){
+			var username = jQuery("#email").val();
+			var password = jQuery("#password").val();
+			alert(username + password);
+			$.ajax({
+				url: "register?username="+username + "&password=" + password,
+			})
+			.done(function(){
+			});
+		});
+		
+		
+	</script>
 </html>
